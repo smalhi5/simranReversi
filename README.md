@@ -1,0 +1,2 @@
+# simranReversi
+The Reversi Game
