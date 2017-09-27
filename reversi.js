@@ -23,7 +23,6 @@ var state = {
 function getLegalMoves() {
         
         state.moves = [];
-        // check all eight directions
         for (var row = 0; row < state.rows; row++) {
             
             for (var col = 0; col < state.cols; col++) {
@@ -91,6 +90,7 @@ function getLegalMoves() {
           square.classList.add('highlight');
           square.onclick = handleReversiClick;
         });
+        return state.moves.length > 0;
 }
 
 function canMove(row,col,dir){
@@ -214,8 +214,8 @@ function clearHighlights() {
 //handle the click
 function handleReversiClick(event) {
   event.preventDefault();
-  var x = parseInt(event.target.charAt(7));
-  var y = parseInt(event.target.charAt(9));
+  var x = parseInt(event.target.id.charAt(7));
+  var y = parseInt(event.target.id.charAt(9));
   // Clear old highlights
   clearHighlights();
   // Mark squares available for moves
@@ -273,4 +273,4 @@ function setup() {
 }
 
 setup();
-//getLegalMoves();
+getLegalMoves();
